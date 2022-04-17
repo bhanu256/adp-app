@@ -1,8 +1,7 @@
 import {View, Button, StyleSheet} from 'react-native';
 import React from 'react';
 
-const LoginButton = (props) => {
-
+const LoginButton = props => {
   function onClick() {
     props.callBack(props.title);
   }
@@ -15,16 +14,14 @@ const LoginButton = (props) => {
         title={props.title}
       />
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
-    width: '80%'
+    width: '80%',
   },
-  button: {
-    
-  }
+  button: {},
 });
 
 export default LoginButton;

@@ -1,32 +1,82 @@
-import { View, StyleSheet, TextInput } from 'react-native'
-import React, { Component } from 'react'
+import {
+  View,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  Text,
+} from 'react-native';
+import React, { useState } from 'react';
 
-import LoginButton from '../components/LoginButton'
+import { useNavigation } from '@react-navigation/native';
+
+import LoginButton from '../components/LoginButton';
 
 const Login = () => {
+  const [mail, setMail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigation = useNavigation();
 
   function onChildCallBackEvent(name) {
     console.log(name);
   }
 
+  function onSubmit() {
+    console.log(mail + password);
+    navigation.navigate('tabsNavigation');
+  }
+
   return (
     <View style={[styles.container]}>
-      <LoginButton 
+      <TextInput
+        value={mail}
+        onChangeText={setMail}
+        placeholder="Enter mail address"
+        style={[styles.items, styles.textInputDec]}
+      />
+      <TextInput
+        value={password}
+        onChangeText={setPassword}
+        placeholder="Enter password"
+        secureTextEntry
+        style={[styles.items, styles.textInputDec]}
+      />
+      <TouchableOpacity
+        onPress={() => onSubmit()}
+        style={[styles.items, styles.submitButton]}>
+        <Text>Submit</Text>
+      </TouchableOpacity>
+      <Text>OR</Text>
+      <LoginButton
         callBack={onChildCallBackEvent}
-        title='Microsoft'
+        title="Microsoft"
+        style={[styles.items]}
       />
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})
 
-export default Login
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  items: {
+    width: '80%',
+  },
+  submitButton: {
+    alignItems: 'center',
+    backgroundColor: 'grey',
+  },
+  textInputDec: {
+    borderRadius: 5,
+    borderColor: 'grey',
+    borderStyle: 'solid',
+    borderWidth: 1,
+  },
+});
+
+export default Login;
