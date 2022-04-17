@@ -1,42 +1,22 @@
-import {Text, View, Button, StyleSheet} from 'react-native';
-import React, {Component} from 'react';
+import {View, Button, StyleSheet} from 'react-native';
+import React from 'react';
 
-class LoginButton extends Component {
-  constructor(props) {
-    super(props);
-  }
+const LoginButton = (props) => {
 
-  onClick(props) {
+  function onClick() {
     props.callBack(props.title);
   }
 
-  render() {
-    return (
-      <View style={[styles.container]}>
-        <Button
-          style={[styles.button]}
-          onPress={() => this.onClick(this.props)}
-          title={this.props.title}
-        />
-      </View>
-    );
-  }
+  return (
+    <View style={[styles.container]}>
+      <Button
+        style={[styles.button]}
+        onPress={() => onClick()}
+        title={props.title}
+      />
+    </View>
+  )
 }
-
-// function onClick(props) {
-//   props.callBack(props.title);
-// }
-
-// const LoginButton = (props) => {
-//   return (
-//     <View style={[styles.container]}>
-//         <Button
-//           onPress={() => onClick(props)}
-//           title={props.title}
-//         />
-//       </View>
-//   )
-// }
 
 const styles = StyleSheet.create({
   container: {

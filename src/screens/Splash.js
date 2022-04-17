@@ -1,25 +1,20 @@
 import {Text, View, StyleSheet} from 'react-native';
-import React, {Component} from 'react';
+import React, {Component, useEffect} from 'react';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
-class Splash extends Component {
-  constructor() {
-    super();
-  }
+const Splash = () => {
+  const navigation = useNavigation();
 
-  componentDidMount() {
-    this.getStoredCredentials();
-  }
-
-  getStoredCredentials() {
+  function getStoredCredentials() {
     AsyncStorage.removeItem('email');
     AsyncStorage.getItem('email')
       .then((data) => {
         if (data !== null) {
-          this.props.navigation.navigate('home');
+          navigation.navigate('home');
         } else {
-          this.props.navigation.navigate('login');
+          navigation.navigate('login');
         }
       })
       .catch((err) => {
@@ -27,13 +22,15 @@ class Splash extends Component {
       });
   }
 
-  render() {
-    return (
+  useEffect(() => {
+    getStoredCredentials();
+  })
+
+  return (
       <View style={[styles.container]}>
         <Text>App Loading</Text>
       </View>
-    );
-  }
+  )
 }
 
 const styles = StyleSheet.create({
