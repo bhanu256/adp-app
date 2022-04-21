@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     height: '100%',
 
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
   },
   items: {
     width: '80%',
