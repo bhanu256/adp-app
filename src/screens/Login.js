@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 
-import LoginButton from '../components/LoginButton';
+import CustomButton from '../components/CustomButton';
 
 const Login = () => {
   const [mail, setMail] = useState('');
@@ -47,7 +47,7 @@ const Login = () => {
         <Text>Submit</Text>
       </TouchableOpacity>
       <Text>OR</Text>
-      <LoginButton
+      <CustomButton
         callBack={onChildCallBackEvent}
         title="Microsoft"
         style={[styles.items]}
@@ -58,9 +58,7 @@ const Login = () => {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: '100%',
-
+    flex:1,
     alignItems: 'center',
     justifyContent: 'space-evenly',
   },

@@ -14,6 +14,10 @@ const CommonStyles = StyleSheet.create({
   subTitle: {
     fontSize: 14,
     fontWeight: 'normal'
+  },
+  centerItems: {
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 })
 

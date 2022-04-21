@@ -10,6 +10,8 @@ const WeekList = () => {
       <WeekDayCircle 
         active={false}
         weekDay='M'
+        id={index}
+        key={index}
       />
     )
   }
@@ -22,6 +24,7 @@ const WeekList = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: 'row'
   }
 })

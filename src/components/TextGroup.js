@@ -7,18 +7,21 @@ const TextGroup = (props) => {
   const reverse = props?.reverse === true ? props.reverse : false;
   return (
     <View style={[styles.container]}>
-      <Text style={[(reverse && {color: 'grey'}), CommonStyles.title]}>{props.title}</Text>
-      <Text style={[(reverse && {color: 'black'}), CommonStyles.subTitle]}>{props.subTitle}</Text>
+      <Text style={[CommonStyles.title, {color: reverse ? false : CommonStyles.title.color}]}>{props.title}</Text>
+      <Text style={[CommonStyles.subTitle, {color: reverse ? 'black' : CommonStyles.subTitle.color}]}>{props.subTitle}</Text>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     right: 'auto',
     left: 'auto',
     bottom: 'auto',
     top: 'auto',
+    width: 'auto',
+    height: 'auto',
     marginBottom: 10
   }
 })

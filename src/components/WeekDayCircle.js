@@ -5,7 +5,7 @@ const WeekDayCircle = (props) => {
   const active = props.active ? true : false;
 
   return (
-    <View style={[styles.circle, (active ? styles.activeCircle : styles.disabledCircle)]}>
+    <View style={[styles.circle, (active ? styles.activeCircle : styles.disabledCircle)]} key={props.id}>
       <Text>{props.weekDay}</Text>
     </View>
   )
